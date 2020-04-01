@@ -1,0 +1,33 @@
+<div class="row mb-5">
+    <h1>Bienvenido <small>usuario.nombre</small></h1>
+    <div class="col text-right">
+        <button class="btn btn-outline-danger" (click)="salir()">
+            Cerrar sesion
+        </button>
+    </div>
+    <hr>
+
+</div>
+<hr>
+<br>
+
+<div class="col text-center">
+    <button class="btn btn-outline-primary" (click)="salir()">
+        Gestionar autos
+    </button>
+
+    <button class="btn btn-outline-primary" (click)="salir()">
+        Ver usuarios
+    </button>
+
+    <button class="btn btn-outline-primary" (click)="salir()">
+        Ver catalogo
+    </button>
+</div>
+
+
+<app-autos></app-autos>
+<app-usuarios></app-usuarios>
+<app-catalogo></app-catalogo>
+
+<br>

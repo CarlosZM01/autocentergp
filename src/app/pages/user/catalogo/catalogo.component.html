@@ -1,0 +1,59 @@
+<h1> Catalogo de autos</h1>
+<hr>
+
+<table *ngIf="!cargando && autos.length > 0" class="table mt-4 animated fadeIn faster">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Capacidad</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Placas</th>
+            <th scope="col">Color</th>
+            <th scope="col">Caracteristicas</th>
+            <th scope="col">Monto</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Rentar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let auto of autos; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ auto.modelo }}</td>
+            <td>{{ auto.capacidad }}</td>
+            <td>{{ auto.marca }}</td>
+            <td>{{ auto.placas }}</td>
+            <td>{{ auto.color }}</td>
+            <td>{{ auto.caracteristicas }}</td>
+            <td>{{ auto.monto }}</td>
+            <td>
+                <img class="card-img-top img-fluid" [src]="auto.imagen">
+            </td>
+            <td>
+                <label *ngIf="auto.estado" class="badge badge-success">Disponible</label>
+                <label *ngIf="!auto.estado" class="badge badge-danger">Ocupado</label>
+            </td>
+            <td>
+                <button *ngIf="auto.estado" class="btn btn-primary mr-1" (click)="rentarAuto()">Reservar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="!cargando && autos.length === 0" class="alert alert-warning text-center mt-3">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+        <i class="fa fa-exclamation-circle fa-2x"></i>
+    </p>
+</div>
+
+<div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">Cargando...</h4>
+    <p>
+        <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0">
+        Espere por favor
+    </p>
+</div>
