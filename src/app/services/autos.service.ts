@@ -50,7 +50,7 @@ export class AutosService {
     return this.http.get(`${ this.url }/autos.json`)
           .pipe(
             map( this.crearArreglo ),
-            delay(700)
+            delay(300)
           );
   }
 

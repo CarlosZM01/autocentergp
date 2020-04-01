@@ -49,7 +49,7 @@ export class UsuariosService {
     return this.http.get(`${ this.url }/usuarios.json`)
           .pipe(
             map( this.crearArreglo ),
-            delay(700)
+            delay(300)
           );
   }
 

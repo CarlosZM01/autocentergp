@@ -1,5 +1,14 @@
-<h1> Usuarios registrados</h1>
+<h1>Usuarios <small> registrados</small></h1>
 <hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/home">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
 
 <table *ngIf="!cargando && usuarios.length > 0" class="table mt-4 animated fadeIn faster">
     <thead class="thead-dark">
