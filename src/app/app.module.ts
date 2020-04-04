@@ -14,6 +14,8 @@ import { AutosComponent } from './pages/admin/autos/autos.component';
 import { UsuarioComponent } from './pages/admin/usuario/usuario.component';
 import { UsuariosComponent } from './pages/admin/usuarios/usuarios.component';
 import { CatalogoComponent } from './pages/user/catalogo/catalogo.component';
+import { RentasComponent } from './pages/admin/rentas/rentas.component';
+import { RentaComponent } from './pages/admin/renta/renta.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { CatalogoComponent } from './pages/user/catalogo/catalogo.component';
     AutosComponent,
     UsuarioComponent,
     UsuariosComponent,
-    CatalogoComponent
+    CatalogoComponent,
+    RentasComponent,
+    RentaComponent
   ],
   imports: [
     BrowserModule,

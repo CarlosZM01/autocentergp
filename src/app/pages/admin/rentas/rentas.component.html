@@ -1,0 +1,52 @@
+<h1>Rentas</h1>
+<hr>
+
+<div class="col text-right">
+    <button class="btn btn-danger mr-5" routerLink="/home">
+        <i class="fa fa-arrow-left"></i>
+            Regresar
+    </button>
+</div>
+
+
+<table *ngIf="!cargando && rentas.length > 0" class="table mt-4 animated fadeIn faster">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Auto</th>
+            <th scope="col">Dias</th>
+            <th scope="col">Monto</th>
+            <th scope="col">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let renta of rentas; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <!-- <td>{{ usuario.email }}</td> -->
+            <!-- <td>`{{ usuario.nombre }} {{ usuario.apellido1 }} {{ usuario.apellido2 }}`</td> -->
+            <!-- <td>`{{ auto.marca }} {{ auto.modelo }}`</td> -->
+            <td>{{ renta.dias }}</td>
+            <!-- <td>{{ auto.monto }}</td> -->
+            <td>{{ renta.total }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="!cargando && rentas.length === 0" class="alert alert-warning text-center mt-3">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+        <i class="fa fa-exclamation-circle fa-2x"></i>
+    </p>
+</div>
+
+<div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+    <h4 class="alert-heading">Cargando...</h4>
+    <p>
+        <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0">
+        Espere por favor
+    </p>
+</div>

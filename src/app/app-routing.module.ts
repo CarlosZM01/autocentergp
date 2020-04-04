@@ -9,6 +9,8 @@ import { AutosComponent } from './pages/admin/autos/autos.component';
 import { AutoComponent } from './pages/admin/auto/auto.component';
 import { UsuariosComponent } from './pages/admin/usuarios/usuarios.component';
 import { UsuarioComponent } from './pages/admin/usuario/usuario.component';
+import { RentasComponent } from './pages/admin/rentas/rentas.component';
+import { RentaComponent } from './pages/admin/renta/renta.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'auto/:id'   , component: AutoComponent },
   { path: 'usuarios'   , component: UsuariosComponent },
   { path: 'usuario/:id'   , component: UsuarioComponent },
+  { path: 'rentas'   , component: RentasComponent },
+  { path: 'renta/:id'   , component: RentaComponent },
   { path: '**', redirectTo: 'login' }
 ];
 
