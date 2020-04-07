@@ -58,6 +58,11 @@
             </div>
 
             <div class="form-group">
+                <label>Cantidad</label>
+                <input type="number" class="form-control" placeholder="Autos en existencia" [(ngModel)]="auto.cantidad" name="cantidad" pattern="^[0-9]+" required>
+            </div>
+
+            <div class="form-group">
                 <label>Imagen</label>
                 <input type="text" class="form-control" placeholder="Imagen del auto" [(ngModel)]="auto.imagen" name="imagen" required>
             </div>
@@ -78,7 +83,7 @@
 
             <hr>
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-primary w-25">
+                <button type="submit" class="btn btn-primary w-25" [disabled]="!f.valid">
                     <i class="fa fa-save"></i>
                     Guardar
                 </button>

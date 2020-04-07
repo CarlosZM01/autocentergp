@@ -24,11 +24,11 @@
     <tbody>
         <tr *ngFor="let renta of rentas; let i = index">
             <th scope="row">{{ i + 1 }}</th>
-            <!-- <td>{{ usuario.email }}</td> -->
-            <!-- <td>`{{ usuario.nombre }} {{ usuario.apellido1 }} {{ usuario.apellido2 }}`</td> -->
-            <!-- <td>`{{ auto.marca }} {{ auto.modelo }}`</td> -->
+            <td>{{ renta.email }}</td>
+            <td>{{ renta.cliente }}</td>
+            <td>{{ renta.auto }}</td>
             <td>{{ renta.dias }}</td>
-            <!-- <td>{{ auto.monto }}</td> -->
+            <td>{{ renta.monto }}</td>
             <td>{{ renta.total }}</td>
         </tr>
     </tbody>

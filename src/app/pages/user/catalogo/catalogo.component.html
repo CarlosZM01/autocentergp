@@ -40,11 +40,11 @@
                 <img class="card-img-top img-fluid" [src]="auto.imagen">
             </td>
             <td>
-                <label *ngIf="auto.estado" class="badge badge-success">Disponible</label>
-                <label *ngIf="!auto.estado" class="badge badge-danger">Ocupado</label>
+                <label *ngIf="auto.cantidad > 0" class="badge badge-success">Disponible</label>
+                <label *ngIf="auto.cantidad < 1" class="badge badge-danger">Ocupado</label>
             </td>
             <td>
-                <button *ngIf="auto.estado" class="btn btn-primary mr-1" (click)="rentarAuto()">Reservar</button>
+                <button *ngIf="auto.cantidad > 0" class="btn btn-primary mr-1" (click)="rentarAuto()">Reservar</button>
             </td>
         </tr>
     </tbody>

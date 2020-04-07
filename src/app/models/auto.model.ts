@@ -11,6 +11,7 @@ export class AutoModel {
     caracteristicas:String; //Ay! Muchas cosas wuuuu
     monto: number; //4900
     imagen: string; //https://cdn.motor1.com/images/mgl/Rz0je/s1/2021-audi-a3-sedan-rendering.jpg
+    cantidad: number;
     estado: boolean; //Disponible
 
     constructor(){

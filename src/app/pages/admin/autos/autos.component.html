@@ -25,6 +25,7 @@
             <th scope="col">Color</th>
             <th scope="col">Caracteristicas</th>
             <th scope="col">Monto</th>
+            <th scope="col">Cantidadd</th>
             <th scope="col">Imagen</th>
             <th scope="col">Estado</th>
             <th scope="col">Operaciones</th>
@@ -40,12 +41,13 @@
             <td>{{ auto.color }}</td>
             <td>{{ auto.caracteristicas }}</td>
             <td>{{ auto.monto }}</td>
+            <td>{{ auto.cantidad }}</td>
             <td>
                 <img class="card-img-top img-fluid" [src]="auto.imagen">
             </td>
             <td>
-                <label *ngIf="auto.estado" class="badge badge-success">Disponible</label>
-                <label *ngIf="!auto.estado" class="badge badge-danger">Ocupado</label>
+                <label *ngIf="auto.cantidad > 0" class="badge badge-success">Disponible</label>
+                <label *ngIf="auto.cantidad < 1" class="badge badge-danger">Ocupado</label>
             </td>
             <td>
                 <button class="btn btn-info mr-1" [routerLink]="['/auto', auto.id ]">

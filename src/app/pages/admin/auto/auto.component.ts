@@ -54,11 +54,13 @@ export class AutoComponent implements OnInit {
 
     if ( this.auto.id ) {
       peticion = this.autosService.actualizarAuto( this.auto );
+
     } else {
       peticion = this.autosService.crearAuto( this.auto );
     }
 
     peticion.subscribe( resp => {
+      
       Swal.fire({
         title: `${ this.auto.marca } ${ this.auto.modelo }`,
         text: 'Datos guardados',

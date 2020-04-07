@@ -18,19 +18,9 @@ export class RentaComponent implements OnInit {
   constructor( private rentasService: RentasService,
                private route: ActivatedRoute ) { }
 
+               
   ngOnInit(): void {
-
-    const id = this.route.snapshot.paramMap.get('id');
-
-    if ( id !== 'nuevo' ) {
-
-      this.rentasService.getRenta( id )
-        .subscribe( (resp: RentaModel) => {
-          this.renta = resp;
-          this.renta.id = id;
-        });
-    }
-
+    throw new Error("Method not implemented.");
   }
 
 }
