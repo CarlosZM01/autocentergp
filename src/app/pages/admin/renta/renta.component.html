@@ -1,1 +1,67 @@
-<p>renta works!</p>
+<h1>{{ renta.cliente }} <small>{{ renta.auto }}</small></h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/autos">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+
+        <form (ngSubmit)="guardar( f )" #f="ngForm">
+
+            <div class="form-group">
+                <label>Firebase ID</label>
+                <input type="text" class="form-control" placeholder="Firebase ID" [(ngModel)]="renta.id" name="id" disabled="disabled">
+                <small class="form-text text-muted">Este campo es autogenerado</small>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" placeholder="Email del cliente" [(ngModel)]="renta.email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Cliente</label>
+                <input type="text" class="form-control" placeholder="Nombre del cliente" [(ngModel)]="renta.cliente" name="cliente" required>
+            </div>
+
+            <div class="form-group">
+                <label>Auto</label>
+                <input type="text" class="form-control" placeholder="Auto que se reservara" [(ngModel)]="renta.auto" name="auto" required>
+            </div>
+
+            <div class="form-group">
+                <label>Dias</label>
+                <input type="number" class="form-control" placeholder="Dias a rentar" [(ngModel)]="renta.dias" name="dias" required>
+            </div>
+
+            <div class="form-group">
+                <label>Monto</label>
+                <input type="number" class="form-control" placeholder="Monto del auto a reservar" [(ngModel)]="renta.monto" name="monto" required>
+            </div>
+
+            <div class="form-group">
+                <label>Total</label>
+                <input type="number" class="form-control" placeholder="Monto total" [(ngModel)]="renta.total" name="total" required>
+            </div>
+
+
+            <hr>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25" [disabled]="!f.valid">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

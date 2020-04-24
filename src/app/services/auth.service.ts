@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UsuarioModel } from '../models/usuario.model';
-
-import { map } from 'rxjs/operators';
+import { map, delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -63,8 +62,24 @@ export class AuthService {
         return resp;        
       })
     );
+  
   }
 
+  crearUsuario( usuario: UsuarioModel ) {
+    const user = {
+      ...usuario,
+      returnSecureToken: true
+    };
+
+    return this.http.post(`https://autocenter-35144.firebaseio.com/usuarios.json`, user)
+          .pipe(
+            map( (resp: any) => {
+              this.guardarToken( resp['idToken'] );
+              usuario.id = resp.name;
+              return resp;
+            })
+          );
+  }
 
   private guardarToken( idToken: string ){
 
@@ -104,6 +119,5 @@ export class AuthService {
     }
 
   }
-
 
 }

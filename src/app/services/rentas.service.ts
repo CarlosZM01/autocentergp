@@ -13,25 +13,38 @@ export class RentasService {
   constructor( private http: HttpClient) { }
 
 
-  crearRenta( renta: RentaModel) {
+  crearRenta( renta: RentaModel ) {
 
     return this.http.post(`${ this.url }/rentas.json`, renta)
           .pipe(
             map( (resp: any) => {
-                renta.id = resp.id;
-                renta.email = resp.email;
-                // usuario.email = resp.email;
-                renta.cliente = resp.cliente;
-                // usaurio.nombre = resp.cliente;
-                renta.auto = resp.auto;
-                // auto.modelo = resp.auto;
-                renta.dias = resp.dias;
-                renta.monto = resp.monto;
-                renta.total = resp.total;
+              renta.id = resp.name;
               return renta;
             })
           );
   }
+
+  actualizarRenta( renta: RentaModel ) {
+
+    const rentaTemp = {
+      ...renta
+    };
+
+    delete rentaTemp.id;
+
+    return this.http.put(`${ this.url }/rentas/${ renta.id }.json`, rentaTemp);
+  }
+
+
+  borrarRenta( id:string ) {
+     return this.http.delete(`${ this.url }/rentas/${ id }.json`);
+  }
+
+
+  getRenta( id: string ) {
+    return this.http.get(`${ this.url }/rentas/${ id }.json`);
+  }
+
 
   getRentas() {
     return this.http.get(`${ this.url }/rentas.json`)

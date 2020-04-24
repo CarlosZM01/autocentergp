@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RentaModel } from 'src/app/models/renta.model'
 import { RentasService } from 'src/app/services/rentas.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-rentas',
@@ -23,6 +24,24 @@ export class RentasComponent implements OnInit {
         this.rentas = resp;
         this.cargando = false;
       });
+  }
+
+  borrarRenta( renta: RentaModel, i: number ) {
+
+    Swal.fire({
+      title: '¿Eliminar registro?',
+      text: `Se eliminara ${ renta.cliente } ${ renta.auto }`,
+      icon: "question",
+      showConfirmButton: true,
+      showCancelButton: true
+    }).then( resp => {
+
+      if ( resp.value ) {
+        this.rentas.splice(i, 1);
+        this.rentasService.borrarRenta( renta.id ).subscribe();
+      }
+      
+    });
   }
 
 }

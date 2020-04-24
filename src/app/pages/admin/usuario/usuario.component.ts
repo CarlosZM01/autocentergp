@@ -57,7 +57,7 @@ export class UsuarioComponent implements OnInit {
     if ( this.usuario.id ) {
       peticion = this.usuariosService.actualizarUsuario( this.usuario );
     } else {
-      peticion = this.usuariosService.crearUsuario( this.usuario );
+      peticion = this.auth.crearUsuario( this.usuario );
     }
 
     peticion.subscribe( resp => {

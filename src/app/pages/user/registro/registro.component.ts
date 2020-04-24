@@ -11,13 +11,12 @@ import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 
 
-
-
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
+
 export class RegistroComponent implements OnInit {
 
   usuario: UsuarioModel = new UsuarioModel();
@@ -45,25 +44,9 @@ export class RegistroComponent implements OnInit {
     });
     Swal.showLoading();
 
+//-----------------------------------------------------------------------
 
-    //-------------------------------------------------------------
-    let peticion: Observable<any>;
-
-    if ( this.usuario.id ) {
-    } else {
-      peticion = this.usuariosService.crearUsuario( this.usuario );
-    }
-
-    peticion.subscribe( resp => {
-      Swal.fire({
-        title: `${ this.usuario.nombre } ${ this.usuario.apellido1 }`,
-        text: 'Datos guardados',
-        icon: 'success'
-      });
-
-    });
-    //--------------------------------------------------------------
-
+// Crea usuario para iniciar sesion solo si no esta registrado
     this.auth.nuevoUsuario( this.usuario )
     .subscribe( resp => {
 
@@ -74,7 +57,7 @@ export class RegistroComponent implements OnInit {
         localStorage.setItem('email', this.usuario.email);
       }
 
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/login');
 
     }, (err) => {
 
@@ -82,10 +65,73 @@ export class RegistroComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Error al registrarse',
-        text: err.error.error.message
+        text: 'El e-mail ya existe'
       });
-    });
-  }
+      this.router.navigateByUrl('/registro');
+    })
 
+
+    this.auth.crearUsuario( this.usuario )
+    .subscribe( resp => {
+
+      console.log(resp);
+      Swal.close();
+      
+      if ( this.recordarme ) {
+        localStorage.setItem('email', this.usuario.email);
+      }
+
+      // Swal.fire({
+      //   icon: 'info',
+      //   title: 'Cuenta creada',
+      //   text: "Ya puedes iniciar sesión"
+      // });
+      
+      this.router.navigateByUrl('/login');
+
+    }, (err) => {
+
+      console.log(err.error.error.message);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al registrarse',
+        text: 'El e-mail ya esta registrade'
+      });
+      this.router.navigateByUrl('/registro');
+    });
+    
+    ;
+
+//-----------------------------------------------------------------------
+
+//Crea usuario en tabla usuarios aun si existe el correo
+
+
+    this.auth.crearUsuario( this.usuario )
+    .subscribe( resp => {
+
+      console.log(resp);
+      Swal.close();
+      
+      if ( this.recordarme ) {
+        localStorage.setItem('email', this.usuario.email);
+      }
+      
+      this.router.navigateByUrl('/login');
+
+    }, (err) => {
+
+      console.log(err.error.error.message);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al registrarse',
+        text: 'El e-mail ya esta registrade'
+      });
+      this.router.navigateByUrl('/registro');
+    });
+
+//-----------------------------------------------------------------------
+
+  }
 
 }
