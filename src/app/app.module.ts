@@ -16,6 +16,7 @@ import { UsuariosComponent } from './pages/admin/usuarios/usuarios.component';
 import { CatalogoComponent } from './pages/user/catalogo/catalogo.component';
 import { RentasComponent } from './pages/admin/rentas/rentas.component';
 import { RentaComponent } from './pages/admin/renta/renta.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RentaComponent } from './pages/admin/renta/renta.component';
     UsuariosComponent,
     CatalogoComponent,
     RentasComponent,
-    RentaComponent
+    RentaComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

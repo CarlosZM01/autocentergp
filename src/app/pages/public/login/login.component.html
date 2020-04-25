@@ -3,10 +3,8 @@
         <div class="wrap-login100 p-t-50 p-b-90">
             <form (ngSubmit)="login( f )" #f="ngForm" class="login100-form validate-form flex-sb flex-w">
 
-                <span class="login100-form-title p-b-51">
-                    AutoCenter
-                    <!-- <img class="card-img-top img-fluid" [src]="assets/images/log.png"> -->
-                </span>
+                <!-- <span class="login100-form-title p-b-51">AutoCenter</span> -->
+                <img src="\assets\images\log.png" width="50%" height="50%" class="rounded mx-auto d-block mb-4" alt="...">
 
                 <span *ngIf="f.submitted && f.controls['email'].errors" class="text-danger animated fadeIn">Ingresa tu e-mail</span>
                 <div class="wrap-input100 m-b-16">

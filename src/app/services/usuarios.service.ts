@@ -12,6 +12,16 @@ export class UsuariosService {
 
   constructor( private http: HttpClient ) { }
 
+  crearUsuario( usuario: UsuarioModel ) {
+
+    return this.http.post(`${ this.url }/usuarios.json`, usuario)
+          .pipe(
+            map( (resp: any) => {
+              usuario.id = resp.name;
+              return usuario;
+            })
+          );
+  }
 
   actualizarUsuario( usuario: UsuarioModel ) {
 

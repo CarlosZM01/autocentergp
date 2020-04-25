@@ -1,21 +1,24 @@
-<h1>Catálogo</h1>
-<hr>
+<app-navbar></app-navbar>
 
-<div class="row text-right">
-    <div class="col">
-        <button class="btn btn-danger" routerLink="/home">
-            <i class="fa fa-arrow-left"></i>
-            Regresar
-        </button>
+<div>
+    <div class="row text-right">
+        <img src="\assets\images\log.png" width="15%" height="15%" class="rounded float-left mr-5" alt="...">
+        <h1>Catálogo</h1>
+        <div class="col text-right">
+            <button class="btn btn-danger" routerLink="/home">
+                <i class="fa fa-arrow-left"></i> Regresar
+            </button>
+        </div>
     </div>
 </div>
+<hr>
 
 <table *ngIf="!cargando && autos.length > 0" class="table mt-4 animated fadeIn faster">
     <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
             <th scope="col">Modelo</th>
-            <th scope="col">Capacidad</th>
+            <th scope="col"><i class="fa fa-user"></i></th>
             <th scope="col">Marca</th>
             <th scope="col">Placas</th>
             <th scope="col">Color</th>
@@ -40,11 +43,11 @@
                 <img class="card-img-top img-fluid" [src]="auto.imagen">
             </td>
             <td>
-                <label *ngIf="auto.cantidad > 0" class="badge badge-success">Disponible</label>
-                <label *ngIf="auto.cantidad < 1" class="badge badge-danger">Ocupado</label>
+                <label *ngIf="auto.cantidad > 0" class="badge badge-success">Disponibles:  {{auto.cantidad}}</label>
+                <label *ngIf="auto.cantidad < 1" class="badge badge-danger">No disponible</label>
             </td>
             <td>
-                <button *ngIf="auto.cantidad > 0" class="btn btn-primary mr-1">Reservar</button>
+                <button *ngIf="auto.cantidad > 0" class="btn btn-primary mr-1" (click)="rentarAuto()">Reservar</button>
             </td>
         </tr>
     </tbody>

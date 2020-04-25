@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AutosService } from 'src/app/services/autos.service';
 import { AutoModel } from 'src/app/models/auto.model';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-catalogo',
@@ -24,6 +23,10 @@ export class CatalogoComponent implements OnInit {
         this.autos = resp;
         this.cargando = false;
       });
+  }
+
+  rentarAuto(){
+    
   }
 
 }

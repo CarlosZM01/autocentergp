@@ -1,13 +1,17 @@
-<h1>Rentas</h1>
-<hr>
+<app-navbar></app-navbar>
 
-<div class="col text-right">
-    <button class="btn btn-danger mr-5" routerLink="/home">
-        <i class="fa fa-arrow-left"></i>
-            Regresar
-    </button>
+<div>
+    <div class="row text-right">
+        <img src="\assets\images\log.png" width="15%" height="15%" class="rounded float-left mr-5" alt="...">
+        <h1>Rentas</h1>
+        <div class="col text-right">
+            <button class="btn btn-danger" routerLink="/home">
+                <i class="fa fa-arrow-left"></i> Regresar
+            </button>
+        </div>
+    </div>
 </div>
-
+<hr>
 
 <table *ngIf="!cargando && rentas.length > 0" class="table mt-4 animated fadeIn faster">
     <thead class="thead-dark">
