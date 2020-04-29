@@ -2,7 +2,7 @@
 
 <div>
     <div class="row text-right">
-        <img src="\assets\images\log.png" width="15%" height="15%" class="rounded float-left mr-5" alt="...">
+        <img src="\assets\images\log.png" width="15%" height="15%" class="rounded float-left ml-5 mr-5" alt="...">
         <h1>Usuarios</h1>
         <div class="col text-right">
             <button class="btn btn-danger" routerLink="/home">
@@ -13,56 +13,60 @@
 </div>
 <hr>
 
-<table *ngIf="!cargando && usuarios.length > 0" class="table mt-4 animated fadeIn faster">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">e-mail</th>
-            <th scope="col">Nombre(s)</th>
-            <th scope="col">Apellido P.</th>
-            <th scope="col">Apellido M.</th>
-            <th scope="col">Telefono</th>
-            <th scope="col">Direccion</th>
-            <th scope="col">Licencia</th>
-            <th scope="col">Operaciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let usuario of usuarios; let i = index">
-            <th scope="row">{{ i + 1 }}</th>
-            <td>{{ usuario.email }}</td>
-            <td>{{ usuario.nombre }}</td>
-            <td>{{ usuario.apellido1 }}</td>
-            <td>{{ usuario.apellido2 }}</td>
-            <td>{{ usuario.telefono }}</td>
-            <td>{{ usuario.direccion }}</td>
-            <td>{{ usuario.licencia }}</td>
-            <td>
-                <button class="btn btn-info mr-1" [routerLink]="['/usuario', usuario.id ]">
-                    <i class="fa fa-pen"></i>
-                </button>
+<div id="div1">
 
-                <button class="btn btn-danger mr-1" (click)="borrarUsuario( usuario, i )">
-                    <i class="fa fa-trash"></i>
-                </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+    <table *ngIf="!cargando && usuarios.length > 0" class="table mt-4 animated fadeIn faster text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th style="width:5px" scope="col">#</th>
+                <th style="width:70px" scope="col">e-mail</th>
+                <th style="width:50px" scope="col">Nombre(s)</th>
+                <th style="width:103px" scope="col">A. Paterno</th>
+                <th style="width:109px" scope="col">A. Materno</th>
+                <th style="width:30px" scope="col">Teléfono</th>
+                <th style="width:120px" scope="col">Dirección</th>
+                <th style="width:100px" scope="col">Licencia</th>
+                <th style="width:204px" scope="col">Operaciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.apellido1 }}</td>
+                <td>{{ usuario.apellido2 }}</td>
+                <td>{{ usuario.telefono }}</td>
+                <td>{{ usuario.direccion }}</td>
+                <td>{{ usuario.licencia }}</td>
+                <td>
+                    <button class="btn btn-info mr-2" [routerLink]="['/usuario', usuario.id ]">
+                        <i class="fa fa-pen"></i>
+                    </button>
 
-<div *ngIf="!cargando && usuarios.length === 0" class="alert alert-warning text-center mt-3">
-    <h4 class="alert-heading">No hay registros</h4>
-    <p>
-        <i class="fa fa-exclamation-circle fa-2x"></i>
-    </p>
-</div>
+                    <button class="btn btn-danger" (click)="borrarUsuario( usuario, i )">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-<div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
-    <h4 class="alert-heading">Cargando...</h4>
-    <p>
-        <i class="fa fa-spinner fa-spin fa-2x"></i>
-    </p>
-    <p class="mb-0">
-        Espere por favor
-    </p>
+    <div *ngIf="!cargando && usuarios.length === 0" class="alert alert-warning text-center mt-3">
+        <h4 class="alert-heading">No hay registros</h4>
+        <p>
+            <i class="fa fa-exclamation-circle fa-2x"></i>
+        </p>
+    </div>
+
+    <div *ngIf="cargando" class="alert alert-info text-center mt-3 animated fadeIn faster">
+        <h4 class="alert-heading">Cargando...</h4>
+        <p>
+            <i class="fa fa-spinner fa-spin fa-2x"></i>
+        </p>
+        <p class="mb-0">
+            Espere por favor
+        </p>
+    </div>
+
 </div>

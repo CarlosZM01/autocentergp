@@ -49,7 +49,7 @@
         <div class="col-sm-1">
             <div class="form-group">
                 <label>Capacidad</label>
-                <input type="number" class="form-control" placeholder="Capacidad del auto" [(ngModel)]="auto.capacidad" name="capacidad" required>
+                <input type="number" class="form-control" placeholder="0" [(ngModel)]="auto.capacidad" name="capacidad" required>
             </div>
         </div>
 
@@ -63,28 +63,28 @@
         <div class="col-sm-3">
             <div class="form-group">
                 <label>Monto</label>
-                <input type="number" class="form-control" placeholder="Monto por renta del auto" [(ngModel)]="auto.monto" name="monto" required>
+                <input type="number" class="form-control" placeholder="Monto por día" [(ngModel)]="auto.monto" name="monto" required>
             </div>
         </div>
 
         <div class="col-sm-2">
             <div class="form-group">
                 <label>Cantidad</label>
-                <input type="number" class="form-control" placeholder="Autos en existencia" [(ngModel)]="auto.cantidad" name="cantidad" pattern="^[0-9]+" required>
+                <input type="number" class="form-control" placeholder="En existencia" [(ngModel)]="auto.cantidad" name="cantidad" pattern="^[0-9]+" required>
             </div>
         </div>
 
         <div class="col-sm-6">
             <div class="form-group">
-                <label>Caracteristicas</label>
-                <input type="text" class="form-control" placeholder="Caracteristicas del auto" [(ngModel)]="auto.caracteristicas" name="caracteristicas" required>
+                <label>Características</label>
+                <input type="text" class="form-control" placeholder="Características del auto" [(ngModel)]="auto.caracteristicas" name="caracteristicas" required>
             </div>
         </div>
 
         <div class="col-sm-6">
             <div class="form-group">
-                <label>Imagen</label>
-                <input type="text" class="form-control" placeholder="Imagen del auto" [(ngModel)]="auto.imagen" name="imagen" required>
+                <label>Imágen</label>
+                <input type="text" class="form-control" placeholder="URL de imágen" [(ngModel)]="auto.imagen" name="imagen" required>
             </div>
         </div>
 
@@ -92,10 +92,11 @@
 
     <hr class="mb-4 mt-4">
     <div class="form-group text-center">
-        <button type="submit" class="btn btn-primary w-25" [disabled]="!f.valid">
-            <i class="fa fa-save"></i>
+        <button type="submit" class="btn btn-primary w-30 mr-5" [disabled]="!f.valid">
+            <!-- <i class="fa fa-save"></i> -->
             Guardar
-            </button>
+        </button>
+        <button class="btn btn-secondary w-30" routerLink="/autos">Cancelar</button>
     </div>
 
 </form>

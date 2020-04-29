@@ -17,6 +17,7 @@ import { CatalogoComponent } from './pages/user/catalogo/catalogo.component';
 import { RentasComponent } from './pages/admin/rentas/rentas.component';
 import { RentaComponent } from './pages/admin/renta/renta.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { TicketComponent } from './ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     CatalogoComponent,
     RentasComponent,
     RentaComponent,
-    NavbarComponent
+    NavbarComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,

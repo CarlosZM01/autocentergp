@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AutosService } from 'src/app/services/autos.service';
 import { AutoModel } from 'src/app/models/auto.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalogo',
@@ -12,7 +13,8 @@ export class CatalogoComponent implements OnInit {
   autos: AutoModel[] = [];
   cargando: boolean;
 
-  constructor( private autosService: AutosService ) { }
+  constructor( private autosService: AutosService,
+    private router: Router) { }
 
   ngOnInit(): void {
 
@@ -26,7 +28,7 @@ export class CatalogoComponent implements OnInit {
   }
 
   rentarAuto(){
-    
+    this.router.navigateByUrl('/ticket');
   }
 
 }

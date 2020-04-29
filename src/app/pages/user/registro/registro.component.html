@@ -36,6 +36,7 @@
                     <span class="focus-input100"></span>
                 </div>
 
+                <span *ngIf="f.submitted && f.controls['apellido2'].errors" class="text-danger animated fadeIn">Este campo es obligatorio</span>
                 <div class="wrap-input100 m-b-16">
                     <input class="input100" type="text" name="apellido2" [(ngModel)]="usuario.apellido2" placeholder="Apellido Materno" required>
 
@@ -49,8 +50,9 @@
                     <span class="focus-input100"></span>
                 </div>
 
+                <span *ngIf="f.submitted && f.controls['direccion'].errors" class="text-danger animated fadeIn">Este campo es obligatorio</span>
                 <div class="wrap-input100 m-b-16">
-                    <input class="input100" type="text" name="direccion" [(ngModel)]="usuario.direccion" placeholder="Dirección">
+                    <input class="input100" type="text" name="direccion" [(ngModel)]="usuario.direccion" required placeholder="Dirección">
 
                     <span class="focus-input100"></span>
                 </div>
@@ -81,9 +83,11 @@
                 </div>
 
                 <div class="container-login100-form-btn m-t-17">
-                    <button class="login100-form-btn" type="submit">
+                    <button class="login100-form-btn mb-4" type="submit">
                             Crear cuenta
                     </button>
+
+                    <button class="login100-form-btn" routerLink="/login">Cancelar</button>
                 </div>
 
             </form>

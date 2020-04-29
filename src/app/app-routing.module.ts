@@ -12,6 +12,7 @@ import { UsuarioComponent } from './pages/admin/usuario/usuario.component';
 import { RentasComponent } from './pages/admin/rentas/rentas.component';
 import { RentaComponent } from './pages/admin/renta/renta.component';
 import { AuthGuard } from './guards/auth.guard';
+import { TicketComponent } from './ticket/ticket.component';
 
 const routes: Routes = [
   { path: 'home'    , component: HomeComponent, canActivate: [ AuthGuard ] },
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'usuario/:id'   , component: UsuarioComponent },
   { path: 'rentas'   , component: RentasComponent },
   { path: 'renta/:id'   , component: RentaComponent },
-  { path: '**', redirectTo: 'login' }
+  { path: 'ticket'   , component: TicketComponent },
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
